@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color: #07214b;
+}
+
+body {
+  color: #ffffff;
+  background-color: var(--background-color);
+}
+
+/* Update the UI frame hover effect */
+.ui-frame-hover:hover {
+  background-color: rgba(30, 64, 175, 0.1);
+}
+
+/* Update the glowing effect to be less intense */
+.shadow-glow {
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+/* Update the corners to be more subtle */
+.ui-corner::before,
+.ui-corner::after,
+.ui-corner > :first-child::before,
+.ui-corner > :first-child::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid rgba(59, 130, 246, 0.4);
+  z-index: 1;
+}
+
+/* Add a shine effect for buttons */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.3s;
+}
+
+.shine-effect:hover::after {
+  left: 100%;
+  top: 100%;
+}
+
